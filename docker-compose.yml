@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  hazelcast-node1:
+    image: hazelcast/hazelcast:5.3
+    networks:
+      - hz-net
+
+  hazelcast-node2:
+    image: hazelcast/hazelcast:5.3
+    networks:
+      - hz-net
+
+  hazelcast-node3:
+    image: hazelcast/hazelcast:5.3
+    networks:
+      - hz-net
+
+  management-center:
+    image: hazelcast/management-center:5.3
+    ports:
+      - "8080:8080"
+    networks:
+      - hz-net
+
+networks:
+  hz-net:
